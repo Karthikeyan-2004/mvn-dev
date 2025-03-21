@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "linkedin:justicegideonk/bookdir-app"
+        DOCKER_IMAGE = "techtalkjervin/social-app"
         DOCKER_TAG = "latest"
         DOCKER_CREDENTIALS_ID = "docker-cred"
         GITHUB_CREDENTIALS_ID = "github-credentials"
@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git credentialsId: GITHUB_CREDENTIALS_ID, url: 'https://github.com/Jervinjeno/java_project.git', branch: 'main'
+                git credentialsId: GITHUB_CREDENTIALS_ID, url: 'https://github.com/Jervinjeno/spring-framework.git', branch: 'main'
             }
         }
 
@@ -52,16 +52,16 @@ pipeline {
             }
         }
 
-        stage('Deploy to Kubernetes') {
-            steps {
-                script {
-                    sh '''
-                        chmod +x scripts/deploy.sh
-                        ./scripts/deploy.sh
-                    '''
-                }
-            }
-        }
+        // stage('Deploy to Kubernetes') {
+        //     steps {
+        //         script {
+        //             sh '''
+        //                 chmod +x scripts/deploy.sh
+        //                 ./scripts/deploy.sh
+        //             '''
+        //         }
+        //     }
+        // }
     }
 
     post {
