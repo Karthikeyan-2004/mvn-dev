@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "techtalkjervin/social-app"
+        DOCKER_IMAGE = "justice/social-app"
         DOCKER_TAG = "latest"
         DOCKER_CREDENTIALS_ID = "docker-cred"
         GITHUB_CREDENTIALS_ID = "github-credentials"
